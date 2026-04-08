@@ -1,0 +1,115 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ProBeat Studio - Beginner Music Video Editor</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="hero">
+      <h1>ProBeat Studio</h1>
+      <p>
+        Beginner-friendly music editing app with audio tools, beats, tracks,
+        and guided pro workflows.
+      </p>
+    </header>
+
+    <main class="grid">
+      <section class="card">
+        <h2>1) Import Media</h2>
+        <div class="stack">
+          <label>Audio file
+            <input id="audioInput" type="file" accept="audio/*" />
+          </label>
+          <label>Video file (for music-video sync)
+            <input id="videoInput" type="file" accept="video/*" />
+          </label>
+          <audio id="audioPlayer" controls></audio>
+          <video id="videoPlayer" controls></video>
+        </div>
+      </section>
+
+      <section class="card">
+        <h2>2) Audio Edit Panel</h2>
+        <div class="controls">
+          <label>Trim start (sec)
+            <input id="trimStart" type="number" min="0" value="0" step="0.1" />
+          </label>
+          <label>Trim end (sec, 0 = full)
+            <input id="trimEnd" type="number" min="0" value="0" step="0.1" />
+          </label>
+          <label>Volume
+            <input id="volume" type="range" min="0" max="2" value="1" step="0.01" />
+          </label>
+          <label>Speed
+            <input id="speed" type="range" min="0.5" max="1.5" value="1" step="0.01" />
+          </label>
+          <label>Noise cancellation
+            <input id="noiseCancel" type="range" min="0" max="100" value="0" />
+          </label>
+          <label>Autotune intensity
+            <input id="autotune" type="range" min="0" max="100" value="0" />
+          </label>
+          <button id="applyEdit">Apply Edit Settings</button>
+        </div>
+        <p id="editStatus" class="hint"></p>
+      </section>
+
+      <section class="card">
+        <h2>3) Instruments & Beats</h2>
+        <div class="row">
+          <label>Instrument
+            <select id="instrument">
+              <option value="sine">Synth Lead</option>
+              <option value="square">Bass</option>
+              <option value="triangle">Pad</option>
+              <option value="sawtooth">Bright Keys</option>
+            </select>
+          </label>
+          <button id="playInstrument">Play Note (A4)</button>
+        </div>
+        <div class="row">
+          <label>BPM
+            <input id="bpm" type="number" min="60" max="180" value="96" />
+          </label>
+          <button id="startBeat">Start Beat</button>
+          <button id="stopBeat">Stop Beat</button>
+        </div>
+      </section>
+
+      <section class="card">
+        <h2>4) Track Builder</h2>
+        <div class="stack">
+          <label>Track name
+            <input id="trackName" type="text" placeholder="e.g. Vocal Main" />
+          </label>
+          <button id="addTrack">Add Track</button>
+          <ul id="trackList"></ul>
+        </div>
+      </section>
+
+      <section class="card">
+        <h2>5) Beginner Pro Assistant</h2>
+        <ol>
+          <li>Import your song and video.</li>
+          <li>Set trim points to remove dead space.</li>
+          <li>Use noise cancellation between 20-45 for cleaner vocals.</li>
+          <li>Use autotune 10-30 for natural pop style.</li>
+          <li>Add beat and instrument layer, then organize tracks.</li>
+          <li>Sync song drops with video cuts.</li>
+        </ol>
+        <button id="proPreset">Apply "Pro Starter" Preset</button>
+      </section>
+    </main>
+
+    <footer>
+      <small>
+        Tip: This is a learning-focused app prototype. Advanced pro results still
+        require trained ears and creative choices.
+      </small>
+    </footer>
+
+    <script src="app.js"></script>
+  </body>
+</html>
